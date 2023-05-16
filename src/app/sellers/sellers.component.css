@@ -1,0 +1,31 @@
+.title:hover{
+    font-weight: bold;
+}
+.brand:hover{
+    font-weight: bold;
+}
+.category:hover{
+    font-weight: bold;
+}
+.price:hover{
+    font-weight: bold;
+}
+.stock:hover{
+    font-weight: bold;
+}
+.discountPercentage
+:hover{
+    font-weight: bold;
+}
+.rating:hover{
+    font-weight: bold;
+}
+.description:hover{
+    font-weight: bold;
+}
+
+#p1{
+    color: rgb(9, 10, 10);
+    font-weight: bold;
+}
+

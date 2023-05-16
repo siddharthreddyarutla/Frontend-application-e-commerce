@@ -1,0 +1,44 @@
+<section class="h-100 h-custom" style="background-color: #d2c9ff;">
+<p id="p1">The items you may like can be added to the cart/WishList : </p>
+
+<table class="table">
+    <thead>
+      <tr id="row">
+        <!-- <th scope="col">Id</th> -->
+        <th scope="col">Images</th>
+        <th scope="col">Title</th>
+        <th scope="col">Brand</th>
+        <th scope="col">Category</th>
+        <th scope="col">Price</th>
+        <th scope="col">Stock</th>
+        <th scope="col">DiscountPercentage</th>
+        <th scope="col">Rating</th>
+        <th scope="col">Description</th>
+        
+        <th scope="col">AddToCart</th>
+        
+        </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users.products; index as i">
+        <!-- <th scope="row">{{i+1}}</th> -->
+        <td>
+            <img src="{{user.images[2]}}" width="50" height="50">
+        </td>
+        <td>{{ user.title }}</td>
+        <td>{{ user.brand }}</td>
+        <td>{{ user.category }}</td>
+        <td>{{ user.price }}</td>
+        <td>{{ user.stock }}</td>
+        <td>{{ user.discountPercentage }}</td>
+        <td>{{ user.rating }}</td>
+        <td>{{ user.description }}</td>
+        
+        <td>
+            <button type="button" class="btn btn-outline-dark"(click)="addItem(user)">AddToCart</button>
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
+</section>
