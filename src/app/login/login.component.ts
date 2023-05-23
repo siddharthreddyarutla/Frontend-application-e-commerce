@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../auth.service';
+import { ServicesService } from '../services.service';
 
 @Component({
   selector: 'app-login',
@@ -9,37 +9,26 @@ import { AuthService } from '../auth.service';
 })
 export class LoginComponent {
 
-  constructor(private router: Router, private authService: AuthService) { }
-  userArray = [
-    {email:'sidharthreddyarutla@gmail.com', password :'sid' , type:'buyer'},
-    {email:'sidharthreddyarutla@gmail.com', password :'sid' , type:'seller'}
-  ]; 
-
-  singleUser = { email: '', password: '' ,type: ''}; 
-  submitted = false; 
-  founduser = false; 
-  
-  onSubmit(form) 
-  {  
-    this.userArray.forEach((user) => { 
-      if (user.email == this.singleUser.email && 
-        user.password == this.singleUser.password &&
-        user.type == this.singleUser.type) { 
-        this.founduser = true; 
-      } }); 
-
-      
-      
-      if (this.founduser) { 
-       
-        this.authService.login(); 
-        this.router.navigate(['/Home']); 
-      } 
-      else { 
-        alert('User email or password is wrong!'); 
-        this.router.navigate(['']); 
-      } 
-      form.reset(); 
-    }
+  user: any = {
+    email: '',
+    password: ''
+  }
+  user_response: any;
+  constructor(private router: Router, private userService: ServicesService) {
+  }
+  onSubmit(form) {
+    this.userService.userLogin(this.user).
+      subscribe((response: any) => {
+        console.log(response);
+        if (response !== null) {
+          this.user_response = response;
+          localStorage.setItem("userCredentials", JSON.stringify(response));
+          this.router.navigate(['/home']);
+        } else {
+          alert('User doesnt exists');
+          form.reset();
+        }
+      });
+  }
 }
 

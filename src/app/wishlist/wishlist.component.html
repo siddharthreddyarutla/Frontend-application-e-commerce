@@ -1,42 +1,41 @@
-
 <table class="table">
 
-    <thead>
-      <tr id="row">
-        <th scope="col">Id</th>
-        <th scope="col">Title</th>
-        <th scope="col">Brand</th>
-        <th scope="col">Category</th>
-        <th scope="col">Price</th>
-        <th scope="col">Stock</th>
-        <th scope="col">DiscountPercentage</th>
-        <th scope="col">Rating</th>
-        <th scope="col">Description</th>
-        <th scope="col">Images</th>
-        
-        
-        </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let user of existingEntries ; index as i">
-        <th scope="row">{{i+1}}</th>
-        <td>{{ user.title}}</td>
-        <td>{{ user.brand }}</td>
-        <td>{{ user.category }}</td>
-        <td>{{ user.price }}</td>
-        <td>{{ user.stock }}</td>
-        <td>{{ user.discountPercentage }}</td>
-        <td>{{ user.rating }}</td>
-        <td>{{ user.description }}</td>
-        <td>
-            <img src="{{user.images[0]}}" width="60" height="60">
-        </td>
-        
-       
-      </tr>
-      
-    </tbody>
-  </table> 
+  <thead>
+    <tr id="row">
+      <th scope="col">Id</th>
+      <th scope="col">Title</th>
+      <th scope="col">Brand</th>
+      <th scope="col">Category</th>
+      <th scope="col">Price</th>
+      <th scope="col">Stock</th>
+      <th scope="col">DiscountPercentage</th>
+      <th scope="col">Rating</th>
+      <th scope="col">Description</th>
+      <th scope="col">Images</th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of existingEntries ; index as i">
+      <th scope="row">{{i+1}}</th>
+      <td>{{ user.title}}</td>
+      <td>{{ user.brand }}</td>
+      <td>{{ user.category }}</td>
+      <td>{{ user.price }}</td>
+      <td>{{ user.stock }}</td>
+      <td>{{ user.discountPercentage }}</td>
+      <td>{{ user.rating }}</td>
+      <td>{{ user.description }}</td>
+      <td>
+        <img src="{{user.image}}" width="60" height="60">
+      </td>
+
+
+    </tr>
+
+  </tbody>
+</table>
 <div class="container">
   <button type="button" class="btn btn-outline-success" (click)="buyItem()">BuyItems</button>
 </div>

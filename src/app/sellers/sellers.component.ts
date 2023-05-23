@@ -1,3 +1,4 @@
+import { formatCurrency } from '@angular/common';
 import { Component } from '@angular/core';
 import { ServicesService } from '../services.service';
 
@@ -6,12 +7,11 @@ import { ServicesService } from '../services.service';
   templateUrl: './sellers.component.html',
   styleUrls: ['./sellers.component.css']
 })
+
 export class SellersComponent {
 
-
-
-  users = {
-    title:'',
+  product = {
+    title: '',
     brand: '',
     category: '',
     price: '',
@@ -19,28 +19,20 @@ export class SellersComponent {
     discountPercentage: '',
     rating: '',
     description: '',
-  
+    image: ''
   };
-
-  products : any;
-  
-
-  constructor(private userData : ServicesService)
-  {
-    this.products = JSON.parse(localStorage.getItem("products"));
+  constructor(private userData: ServicesService) {
   }
-  
-  
-
-  getSellersFromData(data: any){
-    console.log(data);
-    this.products.push(data);
-    localStorage.setItem('products', JSON.stringify(this.products));
-    alert('Data saved successfully');
-    window.location.reload();
-    // this.userData.saveData(this.users).subscribe((result)=>{
-    //   console.log(result);
-    // }
-    //)
+  postDetailsOfProduct(data: any) {
+    this.userData.postProductDetails(this.product).
+      subscribe((response) => {
+        console.log(response);
+        if (response !== null) {
+          alert("Product added successfully");
+          data.reset();
+        } else {
+          alert("Error occurred while adding product");
+        }
+      })
   }
 }

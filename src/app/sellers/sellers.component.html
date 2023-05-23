@@ -1,113 +1,62 @@
-<section class="h-100 h-custom" style="background-color: #d2c9ff;">
-<div class="container">
+<section class="h-100 h-custom" style="background-color: #dddbeb;">
+  <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-        <form  #sellerForm="ngForm" (ngSubmit)="getSellersFromData(sellerForm.value)">
-            <label id="p1" for="title" >Enter Your Title : </label>
-            <div class="title">
-                <input
-                type="title" 
-                class="title"
-                name="title" 
-                [(ngModel)] = "users.title"
-                #title = "ngModel"
-                placeholder="Enter title"
-                required >
-            </div>
-            <br>
-            
-            <label id="p1" for="brand" >Enter Your Brand : </label>
-            <div class="brand">
-                <input
-                type="brand" 
-                class="brand"
-                [(ngModel)] = "users.brand"
-                #brand = "ngModel"
-                name="brand" 
-                placeholder="Enter brand"
-                required >
-            </div>
-            <br>
-            <label id="p1" for="category" >Enter Your category : </label>
-            <div class="category">
-                <input
-                type="category" 
-                class="category"
-                name="category" 
-                [(ngModel)] = "users.category"
-                #category = "ngModel"
-                placeholder="Enter category"
-                >
-            </div>
-            <br>
-            <label id="p1" for="price" >Enter Your Price : </label>
-            <div class="price">
-                <input
-                type="price" 
-                class="price"
-                name="price" 
-                min=0 max=1000
-                [(ngModel)] = "users.price"
-                #price = "ngModel"
-                placeholder="Enter price"
-                required price >
-            </div>
-            <br>
-            <label id="p1" for="stock" >Enter Your Stock : </label>
-            <div class="stock">
-                <input
-                type="stock" 
-                class="stock"
-                name="stock" 
-                [(ngModel)] = "users.stock"
-                #stock = "ngModel"
-                placeholder="Enter stock"
-                min=0 max=100
-                 >
-            </div>
-            <br>
-            <label id="p1" for="discountPercentage" >Enter Your discountPercentage : </label>
-            <div class="discountPercentage">
-                <input
-                type="discountPercentage" 
-                class="discountPercentage"
-                name="discountPercentage" 
-                [(ngModel)] = "users.discountPercentage"
-                #discountPercentage = "ngModel"
-                placeholder="Enter discountPercentage"
-                 >
-            </div>
-            <br>
-            <label id="p1" for="rating" >Enter Your rating : </label>
-            <div class="rating">
-                <input
-                type="rating" 
-                class="rating"
-                name="rating" 
-                [(ngModel)] = "users.rating"
-                #rating = "ngModel"
-                placeholder="Enter rating"
-                 >
-            </div>
-            <br>
-            <label id="p1" for="description" >Enter Your description : </label>
-            <div class="description">
-                <input
-                type="description" 
-                class="description"
-                name="description"
-                [(ngModel)] = "users.description"
-                #description = "ngModel" 
-                placeholder="Enter description"
-                 >
-            </div>
-            
-            <br>
-            <button type="submit" class="btn btn-outline-primary btn-lg">Submit</button>
+        <form #sellerForm="ngForm" (ngSubmit)="postDetailsOfProduct(sellerForm.value)">
+          <label id="p1" for="title">Enter Your Title : </label>
+          <div class="title">
+            <input type="title" class="title" name="title" [(ngModel)]="product.title" #title="ngModel" placeholder="Enter title" required>
+          </div>
+          <br>
+
+          <label id="p1" for="brand">Enter Your Brand : </label>
+          <div class="brand">
+            <input type="brand" class="brand" [(ngModel)]="product.brand" #brand="ngModel" name="brand" placeholder="Enter brand" required>
+          </div>
+          <br>
+          <label id="p1" for="category">Enter Your category : </label>
+          <div class="category">
+            <input type="category" class="category" name="category" [(ngModel)]="product.category" #category="ngModel" placeholder="Enter category">
+          </div>
+          <br>
+          <label id="p1" for="price">Enter Your Price : </label>
+          <div class="price">
+            <input type="price" class="price" name="price" min=0 max=1000 [(ngModel)]="product.price" #price="ngModel" placeholder="Enter price"
+              required price>
+          </div>
+          <br>
+          <label id="p1" for="stock">Enter Your Stock : </label>
+          <div class="stock">
+            <input type="stock" class="stock" name="stock" [(ngModel)]="product.stock" #stock="ngModel" placeholder="Enter stock" min=0
+              max=100>
+          </div>
+          <br>
+          <label id="p1" for="discountPercentage">Enter Your discountPercentage : </label>
+          <div class="discountPercentage">
+            <input type="discountPercentage" class="discountPercentage" name="discountPercentage" [(ngModel)]="product.discountPercentage"
+              #discountPercentage="ngModel" placeholder="Enter discountPercentage">
+          </div>
+          <br>
+          <label id="p1" for="rating">Enter Your rating : </label>
+          <div class="rating">
+            <input type="rating" class="rating" name="rating" [(ngModel)]="product.rating" #rating="ngModel" placeholder="Enter rating">
+          </div>
+          <br>
+          <label id="p1" for="description">Enter Your description : </label>
+          <div class="description">
+            <input type="description" class="description" name="description" [(ngModel)]="product.description" #description="ngModel"
+              placeholder="Enter description">
+          </div>
+          <br>
+          <label id="p1" for="image">Enter image url : </label>
+          <div class="image">
+            <input type="text" class="image" name="image" [(ngModel)]="product.image" #image="ngModel" placeholder="Enter image url">
+          </div>
+
+          <br>
+          <button type="submit" class="btn btn-outline-primary btn-lg">Submit</button>
         </form>
       </div>
     </div>
   </div>
 </section>
-
-

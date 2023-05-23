@@ -1,7 +1,6 @@
 <section class="h-100 h-custom" style="background-color: #d2c9ff;">
-<p id="p1">The items you may like can be added to the cart/WishList : </p>
-
-<table class="table">
+  <p id="p1">The items you may like can be added to the cart/WishList : </p>
+  <table class="table">
     <thead>
       <tr id="row">
         <!-- <th scope="col">Id</th> -->
@@ -11,19 +10,27 @@
         <th scope="col">Category</th>
         <th scope="col">Price</th>
         <th scope="col">Stock</th>
-        <th scope="col">DiscountPercentage</th>
-        <th scope="col">Rating</th>
+        <th scope="col">DiscountPercentage
+          <div class="column">
+            <button class="btn btn-info" (click)="sortDiscountAsc()">^</button>
+            <button class="btn btn-info" (click)="sortDiscountDesc()">v</button>
+          </div>
+        </th>
+        <th scope="col"> Rating
+          <div class="column">
+            <button class="btn btn-info" (click)="sortRatingAsc()">^</button>
+            <button class="btn btn-info" (click)="sortRatingDesc()">v</button>
+          </div>
+        </th>
         <th scope="col">Description</th>
-        
         <th scope="col">AddToCart</th>
-        
-        </tr>
+      </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of users.products; index as i">
+      <tr *ngFor="let user of products; index as i">
         <!-- <th scope="row">{{i+1}}</th> -->
         <td>
-            <img src="{{user.images[2]}}" width="50" height="50">
+          <img src="{{user.image}}" width="50" height="50">
         </td>
         <td>{{ user.title }}</td>
         <td>{{ user.brand }}</td>
@@ -33,12 +40,11 @@
         <td>{{ user.discountPercentage }}</td>
         <td>{{ user.rating }}</td>
         <td>{{ user.description }}</td>
-        
         <td>
-            <button type="button" class="btn btn-outline-dark"(click)="addItem(user)">AddToCart</button>
+          <button type="button" class="btn btn-outline-dark" (click)="addItem(user)">AddToCart</button>
         </td>
       </tr>
-      
+
     </tbody>
   </table>
 </section>
