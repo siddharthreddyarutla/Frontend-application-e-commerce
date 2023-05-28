@@ -37,4 +37,12 @@ export class ServicesService {
   sortDiscountByDesc() {
     return this.http.get(`${this.localhost_url}/product/sortByDiscountDesc`);
   }
+
+  addToCart(data: any) {
+    return this.http.post(`${this.localhost_url}/cart/addToCart`, data);
+  }
+
+  getAllProductsAddedToCart(userId: any) {
+    return this.http.get(`${this.localhost_url}/cart/getCompleteProductsDetailsAddedToCart?userId=` + userId);
+  }
 }

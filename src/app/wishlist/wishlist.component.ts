@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ServicesService } from '../services.service';
 @Component({
   selector: 'app-wishlist',
   templateUrl: './wishlist.component.html',
@@ -7,20 +8,17 @@ import { Router } from '@angular/router';
 })
 export class WishlistComponent {
 
-  existingEntries: any;
-  constructor(private router: Router) {
-    this.existingEntries = JSON.parse(localStorage.getItem("cart"));
+  products: any;
+  user_credentials: any;
+
+  constructor(private router: Router, serviceData: ServicesService) {
+    this.user_credentials = JSON.parse(localStorage.getItem('userCredentials'));
+
+    serviceData.getAllProductsAddedToCart(this.user_credentials.userId).subscribe((response) => {
+      console.log(response);
+      this.products = response;
+    })
   }
 
-  buyItem() {
-    if (localStorage.getItem('cart') === null) {
-      alert('No items in your wish list');
-    }
-    else {
-      localStorage.removeItem('cart');
-      this.router.navigate(['/landing']);
-      alert('Order placed successfully');
-    }
-  }
 }
 
