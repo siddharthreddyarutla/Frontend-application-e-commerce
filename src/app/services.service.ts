@@ -45,4 +45,12 @@ export class ServicesService {
   getAllProductsAddedToCart(userId: any) {
     return this.http.get(`${this.localhost_url}/cart/getCompleteProductsDetailsAddedToCart?userId=` + userId);
   }
+
+  getPreOrderDetailsForCart(userId: any) {
+    return this.http.get(`${this.localhost_url}/cart/getPreOrderDetailsOfCart?userId=` + userId);
+  }
+
+  removeItemFromCart(userId: any, productId: any) {
+    return this.http.delete(`${this.localhost_url}/cart/removeProductFromCart?userId=${userId}&productId=${productId}`);
+  }
 }

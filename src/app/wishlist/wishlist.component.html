@@ -9,6 +9,7 @@
       <th scope="col">Product State</th>
       <th scope="col">Quantity</th>
       <th scope="col">image</th>
+      <th scope="col">Remove Item</th>
     </tr>
   </thead>
   <tbody>
@@ -22,10 +23,15 @@
       <td>
         <img src="{{product.image}}" width="60" height="60">
       </td>
+      <td>
+        <button type="button" class="btn btn-outline-danger" (click)="removeItemFromCart(product)">Remove Item</button>
+      </td>
     </tr>
-
   </tbody>
 </table>
-<!-- <div class="container">
-   <button type="button" class="btn btn-outline-success" (click)="buyItem()">BuyItems</button>
-</div> -->
+<div class="container">
+  <p>Expected delivery date : {{ pre_order_details.expectedDeliveryDate }}</p>
+  <p>Order Details : {{ pre_order_details.eligibleForFreeDelivery }}</p>
+  <p>Sub Total ( {{ pre_order_details.totalItemsInCart }} items )</p>
+  <p>Total amount : {{ pre_order_details.totalAmount }} rupees</p>
+</div>

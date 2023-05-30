@@ -23,7 +23,7 @@ export class BuyersComponent {
     });
   }
 
-  addItem(product: any) {
+  addItemToCart(product: any) {
     const add_to_cart = {
       userId: this.user_credentials.userId,
       productId: product.productId,
@@ -37,7 +37,7 @@ export class BuyersComponent {
       } else {
         alert('Error occurred while adding into cart');
       }
-    })
+    });
   }
 
   sortRatingAsc() {
