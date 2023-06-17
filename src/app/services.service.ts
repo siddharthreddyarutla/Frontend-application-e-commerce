@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http'
 export class ServicesService {
 
   url = "https://dummyjson.com/products";
-  localhost_url: string = "http://localhost:8080";
+  localhost_url: string = "http://localhost:8089";
   constructor(private http: HttpClient) { }
 
   userLogin(data: any) {

@@ -30,7 +30,7 @@
   </tbody>
 </table>
 <div class="container">
-  <p>Expected delivery date : {{ pre_order_details.expectedDeliveryDate }}</p>
+  <p>Expected delivery date : {{ pre_order_details.expectedDeliveryDate | date }}</p>
   <p>Order Details : {{ pre_order_details.eligibleForFreeDelivery }}</p>
   <p>Sub Total ( {{ pre_order_details.totalItemsInCart }} items )</p>
   <p>Total amount : {{ pre_order_details.totalAmount }} rupees</p>

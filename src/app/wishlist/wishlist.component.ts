@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServicesService } from '../services.service';
 
@@ -14,14 +14,15 @@ export class WishlistComponent implements OnInit {
   pre_order_details: any;
 
   constructor(private router: Router, private serviceData: ServicesService) {
-    this.user_credentials = JSON.parse(localStorage.getItem('userCredentials'));
-    serviceData.getAllProductsAddedToCart(this.user_credentials.userId)
-      .subscribe((response) => {
-        console.log(response);
-        this.products = response;
-      })
+
   }
+
   ngOnInit(): void {
+    this.getAllProductsAddedToCart();
+    this.getPreOrderProductDetails();
+  }
+
+  getPreOrderProductDetails() {
     this.serviceData.getPreOrderDetailsForCart(this.user_credentials.userId)
       .subscribe((response) => {
         console.log(response);
@@ -31,13 +32,21 @@ export class WishlistComponent implements OnInit {
       })
   }
 
+  getAllProductsAddedToCart() {
+    this.user_credentials = JSON.parse(localStorage.getItem('userCredentials'));
+    this.serviceData.getAllProductsAddedToCart(this.user_credentials.userId)
+      .subscribe((response) => {
+        console.log(response);
+        this.products = response;
+      })
+  }
+
   removeItemFromCart(product: any) {
     this.serviceData.removeItemFromCart(this.user_credentials.userId, product.productId)
       .subscribe((response) => {
         console.log(response);
-        alert('item removed successfully from cart');
+        alert('item has been deleted from the cart');
       })
-
   }
 }
 
