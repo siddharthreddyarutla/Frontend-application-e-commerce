@@ -14,7 +14,8 @@ export class CartComponent implements OnInit {
   products: any;
   user_credentials: any;
   pre_order_details: any;
-  cart_state: "IN_CART";
+  cart_state: String = "IN_CART";
+  save_for_later: string = "SAVE FOR LATER";
 
   constructor(private router: Router, private serviceData: ServicesService, private changeDetectorRef: ChangeDetectorRef) {
 
@@ -66,6 +67,24 @@ export class CartComponent implements OnInit {
           this.pre_order_details = response;
         }
       })
+  }
+
+  saveForLater(product: any) {
+    const add_to_save_for_later = {
+      userId: this.user_credentials.userId,
+      productId: product.productId,
+      quantity: product.quantity,
+      cartState: this.save_for_later
+    }
+    this.serviceData.addToSaveForLater(add_to_save_for_later).subscribe((response) => {
+      console.log(response);
+      if (response != null) {
+        alert('Product added successfully to Save For Later');
+      } else {
+        alert('Error occurred while adding into Save For Later');
+      }
+      window.location.reload();
+    });
   }
 }
 

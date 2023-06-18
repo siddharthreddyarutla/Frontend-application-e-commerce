@@ -10,6 +10,7 @@
       <th scope="col">Quantity</th>
       <th scope="col">image</th>
       <th scope="col">Remove Item</th>
+      <th scope="col">Save For Later</th>
     </tr>
   </thead>
   <tbody>
@@ -27,6 +28,9 @@
       </td>
       <td>
         <button type="button" class="btn btn-outline-danger" (click)="removeItemFromCart(product)">Remove Item</button>
+      </td>
+      <td>
+        <button type="button" class="btn btn-outline-secondary" (click)="saveForLater(product)">Save For Later</button>
       </td>
     </tr>
   </tbody>

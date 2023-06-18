@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { SellersComponent } from './sellers/sellers.component';
 import { CartComponent } from './cart/cart.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
+import { SaveForLaterComponent } from './save-for-later/save-for-later.component';
 
 const routes: Routes = [
   { path: 'landing', component: LandingpageComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'sellers', component: SellersComponent },
   { path: 'cart', component: CartComponent },
   { path: 'wishList', component: WishlistComponent },
+  { path: 'saveForLater', component: SaveForLaterComponent },
   { path: '', component: LoginComponent },
   { path: 'home', component: HomepageComponent }
 ];

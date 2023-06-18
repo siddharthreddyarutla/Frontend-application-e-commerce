@@ -1,0 +1,32 @@
+<table class="table">
+
+  <thead>
+    <tr id="row">
+      <th scope="col">Sl.no</th>
+      <th scope="col">image</th>
+      <th scope="col">Title</th>
+      <th scope="col">Brand</th>
+      <th scope="col">Price</th>
+      <th scope="col">Product State</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Remove Item</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products ; index as i">
+      <th scope="row">{{i+1}}</th>
+      <td>
+        <img src="{{product.image}}" width="60" height="60">
+      </td>
+      <td>{{ product.title}}</td>
+      <td>{{ product.brand }}</td>
+      <td>{{ product.price }}</td>
+      <td>{{ product.productState }}</td>
+      <td>{{ product.quantity }}
+      </td>
+      <td>
+        <button type="button" class="btn btn-outline-danger" (click)="removeItemFromSaveForLater(product)">Remove Item</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

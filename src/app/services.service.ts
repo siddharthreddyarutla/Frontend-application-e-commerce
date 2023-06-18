@@ -42,6 +42,10 @@ export class ServicesService {
     return this.http.post(`${this.localhost_url}/cart/addToCart`, data);
   }
 
+  addToSaveForLater(data: any) {
+    return this.http.post(`${this.localhost_url}/cart/addToCart`, data);
+  }
+
   getAllProductsAddedToCart(userId: number) {
     return this.http.get(`${this.localhost_url}/cart/getCompleteProductsDetailsAddedToCart?userId=` + userId);
   }
@@ -63,6 +67,15 @@ export class ServicesService {
   }
 
   getAllProductsAddedToWishlist(userId: number) {
-    return this.http.get(`${this.localhost_url}/cart/getAllCompleteProductsDetailsAddedToWishList?userId=` + userId);
+    // return this.http.get(`${this.localhost_url}/cart/getAllCompleteProductsDetailsAddedToWishList?userId=` + userId);
   }
+
+  getAllProductsAddedToSavForLater(userId: number) {
+    return this.http.get(`${this.localhost_url}/cart/getCompleteProductsDetailsAddedToSaveForLater?userId=` + userId);
+  }
+
+  removeItemFromSaveForLater(userId: number, productId: any) {
+    return this.http.delete(`${this.localhost_url}/cart/removeProductFromSaveForLater?userId=${userId}&productId=${productId}`)
+  }
+
 }

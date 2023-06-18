@@ -14,12 +14,12 @@ export class WishlistComponent {
   constructor(private servicData: ServicesService) {
     this.user_credentials = JSON.parse(localStorage.getItem('userCredentials'));
 
-    this.servicData.getAllProductsAddedToWishlist(this.user_credentials.userId).
-      subscribe((response: any) => {
-        if (response != null) {
-          this.products = response;
-        }
-      })
+    // this.servicData.getAllProductsAddedToWishlist(this.user_credentials.userId).
+    //   subscribe((response: any) => {
+    //     if (response != null) {
+    //       this.products = response;
+    //     }
+    //   })
   }
 
   MoveProductToCart(product: any) {
