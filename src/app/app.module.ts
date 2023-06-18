@@ -8,9 +8,10 @@ import { BuyersComponent } from './buyers/buyers.component';
 import { SellersComponent } from './sellers/sellers.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { WishlistComponent } from './wishlist/wishlist.component';
 import { LoginComponent } from './login/login.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { CartComponent } from './cart/cart.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
 
 @NgModule({
   declarations: [
@@ -18,9 +19,10 @@ import { HomepageComponent } from './homepage/homepage.component';
     LandingpageComponent,
     BuyersComponent,
     SellersComponent,
-    WishlistComponent,
+    CartComponent,
     LoginComponent,
-    HomepageComponent
+    HomepageComponent,
+    WishlistComponent
   ],
   imports: [
     BrowserModule,

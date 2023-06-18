@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpParams } from '@angular/common/http'
 
 @Injectable({
   providedIn: 'root'
@@ -42,15 +42,27 @@ export class ServicesService {
     return this.http.post(`${this.localhost_url}/cart/addToCart`, data);
   }
 
-  getAllProductsAddedToCart(userId: any) {
+  getAllProductsAddedToCart(userId: number) {
     return this.http.get(`${this.localhost_url}/cart/getCompleteProductsDetailsAddedToCart?userId=` + userId);
   }
 
-  getPreOrderDetailsForCart(userId: any) {
+  getPreOrderDetailsForCart(userId: number) {
     return this.http.get(`${this.localhost_url}/cart/getPreOrderDetailsOfCart?userId=` + userId);
   }
 
-  removeItemFromCart(userId: any, productId: any) {
+  removeItemFromCart(userId: number, productId: number) {
     return this.http.delete(`${this.localhost_url}/cart/removeProductFromCart?userId=${userId}&productId=${productId}`);
+  }
+
+  editProductQuantityInCart(userId: number, productId: number, quantity: number) {
+    // const params = new HttpParams();
+    // params.set('userId', userId)
+    //   .set('productId', productId)
+    //   .set('quantity', quantity)
+    return this.http.put(`${this.localhost_url}/cart/editProductQuantityInCart?userId=${userId}&productId=${productId}&quantity=${quantity}`, null);
+  }
+
+  getAllProductsAddedToWishlist(userId: number) {
+    return this.http.get(`${this.localhost_url}/cart/getAllCompleteProductsDetailsAddedToWishList?userId=` + userId);
   }
 }

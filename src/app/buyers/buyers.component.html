@@ -24,6 +24,8 @@
         </th>
         <th scope="col">Description</th>
         <th scope="col">AddToCart</th>
+        <th scope="col">AddToWishList</th>
+        <th scope="col">Buy</th>
       </tr>
     </thead>
     <tbody>
@@ -42,6 +44,12 @@
         <td>{{ product.description }}</td>
         <td>
           <button type="button" class="btn btn-outline-dark" (click)="addItemToCart(product)">AddToCart</button>
+        </td>
+        <td>
+          <button type="button" class="btn btn-outline-secondary" (click)="addItemToWishList(product)">AddToWishList</button>
+        </td>
+        <td>
+          <button type="button" class="btn btn-outline-primary" (click)="BuyProduct(product)">Buy</button>
         </td>
       </tr>
 

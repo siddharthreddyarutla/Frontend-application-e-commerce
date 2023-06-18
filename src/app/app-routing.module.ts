@@ -5,13 +5,15 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { LandingpageComponent } from './landingpage/landingpage.component';
 import { LoginComponent } from './login/login.component';
 import { SellersComponent } from './sellers/sellers.component';
+import { CartComponent } from './cart/cart.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 
 const routes: Routes = [
   { path: 'landing', component: LandingpageComponent },
   { path: 'buyers', component: BuyersComponent },
   { path: 'sellers', component: SellersComponent },
-  { path: 'wishlist', component: WishlistComponent },
+  { path: 'cart', component: CartComponent },
+  { path: 'wishList', component: WishlistComponent },
   { path: '', component: LoginComponent },
   { path: 'home', component: HomepageComponent }
 ];

@@ -13,6 +13,7 @@ export class BuyersComponent {
   user_credentials: any;
   product_quantity: number = 1;
   cart_state: string = "IN CART";
+  wishlist_state: string = "IN WISHLIST";
 
   constructor(private userData: ServicesService) {
     this.user_credentials = JSON.parse(localStorage.getItem('userCredentials'));
@@ -38,6 +39,27 @@ export class BuyersComponent {
         alert('Error occurred while adding into cart');
       }
     });
+  }
+
+  addItemToWishList(product: any) {
+    // const add_to_wishlist = {
+    //   userId: this.user_credentials.userId,
+    //   productId: product.productId,
+    //   quantity: this.product_quantity,
+    //   cartState: this.wishlist_state
+    // }
+    // this.userData.addToCartOrWishlist(add_to_wishlist).subscribe((response) => {
+    //   console.log(response);
+    //   if (response != null) {
+    //     alert('Product added successfully to wishlist');
+    //   } else {
+    //     alert('Error occurred while adding into wishlist');
+    //   }
+    // });
+  }
+
+  BuyProduct(product: any) {
+
   }
 
   sortRatingAsc() {

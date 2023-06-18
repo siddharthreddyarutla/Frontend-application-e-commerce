@@ -1,5 +1,4 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
 import { ServicesService } from '../services.service';
 
 @Component({
@@ -7,46 +6,28 @@ import { ServicesService } from '../services.service';
   templateUrl: './wishlist.component.html',
   styleUrls: ['./wishlist.component.css']
 })
-export class WishlistComponent implements OnInit {
+export class WishlistComponent {
 
   products: any;
   user_credentials: any;
-  pre_order_details: any;
 
-  constructor(private router: Router, private serviceData: ServicesService) {
+  constructor(private servicData: ServicesService) {
+    this.user_credentials = JSON.parse(localStorage.getItem('userCredentials'));
 
-  }
-
-  ngOnInit(): void {
-    this.getAllProductsAddedToCart();
-    this.getPreOrderProductDetails();
-  }
-
-  getPreOrderProductDetails() {
-    this.serviceData.getPreOrderDetailsForCart(this.user_credentials.userId)
-      .subscribe((response) => {
-        console.log(response);
-        if (response !== null) {
-          this.pre_order_details = response;
+    this.servicData.getAllProductsAddedToWishlist(this.user_credentials.userId).
+      subscribe((response: any) => {
+        if (response != null) {
+          this.products = response;
         }
       })
   }
 
-  getAllProductsAddedToCart() {
-    this.user_credentials = JSON.parse(localStorage.getItem('userCredentials'));
-    this.serviceData.getAllProductsAddedToCart(this.user_credentials.userId)
-      .subscribe((response) => {
-        console.log(response);
-        this.products = response;
-      })
+  MoveProductToCart(product: any) {
+
   }
 
-  removeItemFromCart(product: any) {
-    this.serviceData.removeItemFromCart(this.user_credentials.userId, product.productId)
-      .subscribe((response) => {
-        console.log(response);
-        alert('item has been deleted from the cart');
-      })
+  RemoveItemFromWishlist(product: any) {
+
   }
+
 }
-

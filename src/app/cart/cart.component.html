@@ -1,6 +1,5 @@
-<h4> A wishlist allows shoppers to create personalized collections of products they want to buy and save them in their user account
-  for future reference. </h4>
 <table class="table">
+
   <thead>
     <tr id="row">
       <th scope="col">Sl.no</th>
@@ -11,7 +10,6 @@
       <th scope="col">Quantity</th>
       <th scope="col">image</th>
       <th scope="col">Remove Item</th>
-      <th scope="col">Move To Cart</th>
     </tr>
   </thead>
   <tbody>
@@ -21,16 +19,21 @@
       <td>{{ product.brand }}</td>
       <td>{{ product.price }}</td>
       <td>{{ product.productState }}</td>
-      <td>{{ product.quantity }}</td>
+      <td>
+        <input type="number" [(ngModel)]="product.quantity" min="1" (click)="updateQuantity(product)">
+      </td>
       <td>
         <img src="{{product.image}}" width="60" height="60">
       </td>
       <td>
-        <button type="button" class="btn btn-outline-danger" (click)="RemoveItemFromWishlist(product)">Remove Item</button>
-      </td>
-      <td>
-        <button type="button" class="btn btn-outline-primary" (click)="MoveProductToCart(product)">Move To Cart</button>
+        <button type="button" class="btn btn-outline-danger" (click)="removeItemFromCart(product)">Remove Item</button>
       </td>
     </tr>
   </tbody>
 </table>
+<div class="container">
+  <p>Expected delivery date : {{ pre_order_details.expectedDeliveryDate | date }}</p>
+  <p>Order Details : {{ pre_order_details.eligibleForFreeDelivery }}</p>
+  <p>Sub Total ( {{ pre_order_details.totalItemsInCart }} items )</p>
+  <p>Total amount : {{ pre_order_details.totalAmount }} rupees</p>
+</div>
